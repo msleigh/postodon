@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "postodon"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="msleigh", email="msleigh@users.noreply.github.com" },
 ]
