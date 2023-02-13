@@ -40,4 +40,4 @@ tests = [
 "Changelog" = "https://github.com/msleigh/postodon/releases"
 
 [project.scripts]
-postodon = "postodon:post"
+postodon = "postodon:main"
