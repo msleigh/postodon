@@ -1,19 +1,7 @@
-import json
 import random
-import shutil
 import sys
 
-
-def read_db(post_list):
-    with open(post_list, "r") as file_pointer:
-        data = json.load(file_pointer)
-    return data
-
-
-def write_db(post_list, data):
-    shutil.copy(post_list, post_list + ".bup")
-    with open(post_list, "w") as file_pointer:
-        json.dump(data, file_pointer, sort_keys = True, indent = 4)
+from . import utils
 
 
 def get_candidates(data, status):
@@ -70,7 +58,7 @@ def get_post(data):
 
 def main(post_list):
 
-    data = read_db(post_list)
+    data = utils.read_db(post_list)
     post = get_post(data)
-    write_db(post_list, data)
+    utils.write_db(post_list, data)
     return post
