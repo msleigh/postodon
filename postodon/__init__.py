@@ -7,10 +7,11 @@ from . import append_post
 from . import select_post
 from . import submit_post
 
-CONFIG_FILENAME = 'config.json'
+CONFIG_FILENAME = "config.json"
 
 
 # Helpers
+
 
 def read_config():
     with open(CONFIG_FILENAME, "r") as file_pointer:
@@ -20,6 +21,7 @@ def read_config():
 
 # Actions
 
+
 def post():
     config = read_config()
     post = select_post.main(config["post_list"])
@@ -27,12 +29,14 @@ def post():
     if "-n" not in sys.argv:
         submit_post.main(config["instance_name"], post)
 
+
 def add(post_text):
     config = read_config()
     append_post.main(config["post_list"], post_text)
 
 
 # Main - entry point
+
 
 def main(action="post"):
     try:

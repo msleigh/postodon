@@ -3,20 +3,21 @@ import pytest
 
 
 test_string1 = [
-        {"content": "Posted 1",   "id": 0, "status": "posted"},
-        {"content": "Posted 2",   "id": 1, "status": "posted" },
-        {"content": "Unposted 1", "id": 2, "status": "unposted"},
-               ]
+    {"content": "Posted 1", "id": 0, "status": "posted"},
+    {"content": "Posted 2", "id": 1, "status": "posted"},
+    {"content": "Unposted 1", "id": 2, "status": "unposted"},
+]
 test_string2 = [
-        {"content": "Unposted 1", "id": 0, "status": "unposted"},
-        ]
+    {"content": "Unposted 1", "id": 0, "status": "unposted"},
+]
 test_string3 = [
-        {"content": "Posted 1",   "id": 0, "status": "posted"},
-        ]
+    {"content": "Posted 1", "id": 0, "status": "posted"},
+]
 test_string4 = []
 test_list1 = [0]
 test_list2 = [10]
-test_list3 = [0,10]
+test_list3 = [0, 10]
+
 
 @pytest.mark.parametrize(
     "data,status,reference",
@@ -25,7 +26,7 @@ test_list3 = [0,10]
         (test_string2, "unposted", [0]),
         (test_string3, "unposted", []),
         (test_string4, "unposted", []),
-        (test_string1, "posted", [0,1]),
+        (test_string1, "posted", [0, 1]),
         (test_string2, "posted", []),
         (test_string3, "posted", [0]),
         (test_string4, "posted", []),
@@ -34,14 +35,16 @@ test_list3 = [0,10]
 def test_get_candidates(data, status, reference):
     assert select_post.get_candidates(data, status) == reference
 
+
 # ---
+
 
 @pytest.mark.parametrize(
     "candidates,reference",
     [
         (test_list1, [0]),
         (test_list2, [10]),
-        (test_list3, [0,10]),
+        (test_list3, [0, 10]),
     ],
 )
 def test_select_post_from(candidates, reference):
@@ -63,11 +66,12 @@ def test_select_post_from(candidates, reference):
         (test_string1, 2, 2),
         (test_string2, 0, 0),
         (test_string3, 0, 0),
-        ],
-    )
+    ],
+)
 def test_get_index_from_id(data, selected_id, reference):
     result = select_post.get_index_from_id(data, selected_id)
     assert result == reference
+
 
 # ---
 
@@ -82,4 +86,3 @@ def test_get_index_from_id(data, selected_id, reference):
 )
 def test_get_post(i, o1):
     assert select_post.get_post(i) == o1
-

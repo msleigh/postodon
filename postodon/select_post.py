@@ -21,7 +21,6 @@ def get_index_from_id(data, selected_id):
 
 
 def get_post(data):
-
     update_database_after = not "-n" in sys.argv
 
     # Select from the already-posted list as a backup if the unposted list is empty
@@ -46,7 +45,7 @@ def get_post(data):
         print("Post too long:", selected_id)
         sys.exit()
 
-    if '.png' in selected_post:
+    if ".png" in selected_post:
         print("Posting images not available yet", selected_id)
         sys.exit()
 
@@ -57,7 +56,6 @@ def get_post(data):
 
 
 def main(post_list):
-
     data = utils.read_db(post_list)
     post = get_post(data)
     utils.write_db(post_list, data)

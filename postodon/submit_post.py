@@ -12,7 +12,6 @@ def output(response):
 
 
 def main(instance_name, text):
-
     url = "https://" + instance_name + "/api/v1/statuses"
     data = {"status": text}
     headers = {"Authorization": "Bearer " + os.environ["AUTH_TOKEN"]}
