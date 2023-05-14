@@ -25,4 +25,3 @@ jobs:
       run: |
         pytest
         make -C docs html
-
