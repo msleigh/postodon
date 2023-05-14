@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "postodon"
-version = "0.0.2"
+version = "0.0.3"
 description = "Post to Mastodon"
 authors = ["msleigh"]
 readme = "README.md"
