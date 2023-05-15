@@ -13,3 +13,10 @@ repos:
     hooks:
     -   id: poetry-check
     -   id: poetry-lock
+-   repo: local
+    hooks:
+    -   id: black
+        name: black
+        entry: black . --check
+        language: system
+        types: [python]

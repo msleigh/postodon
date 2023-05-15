@@ -31,5 +31,6 @@ jobs:
 
     - name: Run tests
       run: |
+        python3 -m poetry run black . --check
         python3 -m poetry run python3 -m pytest
         python3 -m poetry run make -C docs html
