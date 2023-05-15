@@ -40,4 +40,4 @@ jobs:
       run: |
         python3 -m poetry run black . --check
         python3 -m poetry run python3 -m pytest -v
-        python3 -m poetry run make -C docs html
+        python3 -m poetry run mkdocs build --config-file docs/mkdocs.yml --strict
