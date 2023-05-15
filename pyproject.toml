@@ -21,8 +21,9 @@ classifiers = [
 "Changelog" = "https://github.com/msleigh/postodon/releases"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 requests = "^2.30.0"
+sphinx = "^7.0.1"
 
 [tool.poetry.group.docs.dependencies]
 mkdocs-material = "^9.1.12"
