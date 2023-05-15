@@ -36,7 +36,7 @@ black = "^23.3.0"
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
 
-[tool.project.scripts]
+[tool.poetry.scripts]
 postodon = "postodon:main"
 
 [build-system]
