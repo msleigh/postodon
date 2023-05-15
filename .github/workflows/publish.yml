@@ -8,43 +8,27 @@ permissions:
   contents: read
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
-    steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
-        cache: pip
-        cache-dependency-path: pyproject.toml
-    - name: Install dependencies
-      run: |
-        pip install -e '.[docs,tests]'
-    - name: Run tests
-      run: |
-        pytest
-        make -C docs html
   deploy:
     runs-on: ubuntu-latest
-    needs: [test]
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: "3.11"
         cache-dependency-path: pyproject.toml
+
+    - name: Install and configure Poetry
+      run: |
+          python3 -m pip install poetry==1.4.2
+          python3 -m poetry config virtualenvs.in-project true
+          python3 -m poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
+
     - name: Install dependencies
       run: |
-        pip install twine build
+        python3 -m poetry install --without test
+
     - name: Publish
-      env:
-        TWINE_USERNAME: __token__
-        TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
       run: |
-        python -m build
-        twine upload dist/*
+        python3 -m poetry publish --build

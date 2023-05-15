@@ -13,15 +13,23 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10", "3.11"]
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
         cache-dependency-path: pyproject.toml
+
+    - name: Install and configure Poetry
+      run: |
+          python3 -m pip install poetry==1.4.2
+          python3 -m poetry config virtualenvs.in-project true
+
     - name: Install dependencies
       run: |
-        pip install -e '.[docs,tests]'
+        python3 -m poetry install
+
     - name: Run tests
       run: |
-        pytest
-        make -C docs html
+        python3 -m poetry run python3 -m pytest
+        python3 -m poetry run make -C docs html
