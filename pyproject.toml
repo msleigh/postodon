@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "postodon"
-version = "0.0.3"
+version = "0.0.4"
 description = "Post to Mastodon"
 authors = ["msleigh <msleigh@noreply.users.github.com>"]
 license = "Apache-2.0"
