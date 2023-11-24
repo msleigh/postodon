@@ -1,7 +1,6 @@
 import json
 import os
 import requests
-import sys
 
 
 def output(response):

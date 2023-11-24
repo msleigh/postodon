@@ -1,10 +1,16 @@
 import json
 import shutil
+import sys
 
 
 def read_db(post_list):
-    with open(post_list, "r") as file_pointer:
-        data = json.load(file_pointer)
+    try:
+        with open(post_list, "r") as file_pointer:
+            data = json.load(file_pointer)
+    except FileNotFoundError:
+        print(f"ERROR: cannot find post list at {post_list}")
+        print("Check your config file points to a valid post list")
+        sys.exit()
     return data
 
 

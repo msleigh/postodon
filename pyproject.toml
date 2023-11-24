@@ -1,8 +1,8 @@
 [tool.poetry]
 name = "postodon"
-version = "0.0.4"
+version = "0.0.5"
 description = "Post to Mastodon"
-authors = ["msleigh <msleigh@noreply.users.github.com>"]
+authors = ["msleigh <msleigh@users.noreply.github.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 packages = [{include = "postodon"}]

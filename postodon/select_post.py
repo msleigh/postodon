@@ -21,7 +21,7 @@ def get_index_from_id(data, selected_id):
 
 
 def get_post(data):
-    update_database_after = not "-n" in sys.argv
+    update_database_after = "-n" not in sys.argv
 
     # Select from the already-posted list as a backup if the unposted list is empty
     candidates = get_candidates(data, "unposted")

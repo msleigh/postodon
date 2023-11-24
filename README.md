@@ -14,7 +14,9 @@ The list of posts is a JSON file:
         ...,
     ]
 
-The command `postodon` randomly selects an unposted post, posts it to Mastodon, and marks it as posted in the list. If there are no unposted items, an already-posted item is used instead.
+The command `postodon` randomly selects an unposted post, posts it to Mastodon,
+and marks it as posted in the list. If there are no unposted items, an already-
+posted item is used instead.
 
 ---
 
@@ -24,30 +26,39 @@ Postodon requires Python 3.7+. It is tested on Linux and macOS.
 
 ## Installation
 
-Postodon is published as a Python package and can be installed with `pip`,
-ideally by using a virtual environment. Open up a terminal and install with:
+Postodon is published as a Python package and can be installed with `pipx`
+(recommended), or `pip` within a virtual environment. Open up a terminal and
+install with:
 
-    pip install postodon
+    pipx install postodon
 
 ## Configuration
 
- - Register an application as described here: https://docs.joinmastodon.org/client/token/#app
- - Get an access token as described here: https://docs.joinmastodon.org/client/authorized/#flow
+ - Register an application on Mastodon as described here:
+   <https://docs.joinmastodon.org/client/token/#app>
+ - Get an access token as described here:
+   <https://docs.joinmastodon.org/client/authorized/#flow>
  - Securely store the returned `access_token` for future reference
- - Edit `config.json` to include the name of the Mastodon instance and the name of the posts file, e.g. `posts.json`
+ - Run `postodon init` to create an empty config file (note the location)
+ - Edit the config file to point to the name of the Mastodon instance (e.g.
+   `botsin.space`) and the path to the posts file, e.g. `/path/to/posts.json`
  - Put the access token in an environment variable called `AUTH_TOKEN`
 
       export AUTH_TOKEN=<your_access_token_here>
 
 ## Usage
 
-To publicly post a random post from the list (marked as English), and update the list (i.e. mark the post having been posted):
+To publicly post a random post from the list (marked as English), and update
+the list (i.e. mark the post having been posted):
 
     postodon
 
-This is a shortcut for `postodon post`. NB if there are no unposted items left in the list, a randomly-selected item from the 'posted' selection will be posted instead.
+This is a shortcut for `postodon post`. NB if there are no unposted items left
+in the list, a randomly-selected item from the 'posted' selection will be
+posted instead.
 
-To randomly select an item from the list without either updating the list or posting (dry-run mode):
+To randomly select an item from the list without either updating the list or
+posting (dry-run mode):
 
     postodon post -n
 
@@ -57,7 +68,8 @@ To add new posts to the list for future posting:
 
 ## Development
 
-To contribute to this library, first checkout the code. Then create a new virtual environment:
+To contribute to this library, first checkout the code. Then create a new
+virtual environment:
 
     cd postodon
     python -m venv .venv
