@@ -16,13 +16,16 @@ The list of posts is a JSON file:
 
 The command `postodon` randomly selects an unposted post, posts it to Mastodon, and marks it as posted in the list. If there are no unposted items, an already-posted item is used instead.
 
+---
+
 ## Requirements
 
-FLAFL requires Python 3.7+. It is tested on Linux and macOS.
+Postodon requires Python 3.7+. It is tested on Linux and macOS.
 
 ## Installation
 
-Postodon is published as a Python package and can be installed with `pip`, ideally by using a virtual environment. Open up a terminal and install with:
+Postodon is published as a Python package and can be installed with `pip`,
+ideally by using a virtual environment. Open up a terminal and install with:
 
     pip install postodon
 
@@ -31,7 +34,8 @@ Postodon is published as a Python package and can be installed with `pip`, ideal
  - Register an application as described here: https://docs.joinmastodon.org/client/token/#app
  - Get an access token as described here: https://docs.joinmastodon.org/client/authorized/#flow
  - Securely store the returned `access_token` for future reference
- - Edit `config.json` to include the name of the Mastodon instance and the name of the posts file, e.g. `posts.json` - Put the access token in an environment variable called `AUTH_TOKEN`
+ - Edit `config.json` to include the name of the Mastodon instance and the name of the posts file, e.g. `posts.json`
+ - Put the access token in an environment variable called `AUTH_TOKEN`
 
       export AUTH_TOKEN=<your_access_token_here>
 
